@@ -207,7 +207,7 @@ function Portfolio() {
             <p>@Ananya-Wubshiet</p>
           </a>
           <a
-            href="www.linkedin.com/in/ananya-wubshiet"
+            href="https://linkedin.com/in/ananya-wubshiet"
             target="_blank"
             rel="noreferrer"
             className="contact-card"
