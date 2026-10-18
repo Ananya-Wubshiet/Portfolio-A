@@ -7,7 +7,7 @@ A production-grade developer portfolio showcasing full-stack applications engine
 
 ## 🚀 Featured Capstone Applications
 
-* **🎬 Netflix Clone App**: Movie streaming interface layout with live media data pipelines. ([Codebase](hhttps://github.com/Ananya-Wubshiet/Netflix-Clone.git) | [Live](https://ananya-netflix-clone-pro.onrender.com))
+* **🎬 Netflix Clone App**: Movie streaming interface layout with live media data pipelines. ([Codebase](https://github.com/Ananya-Wubshiet/Netflix-Clone.git) | [Live](https://ananya-netflix-clone-pro.onrender.com))
 * **🤖 ChatGPT Clone Platform**: AI workspace with conversation history logging and tokenizers. ([Codebase](https://github.com/Ananya-Wubshiet/ChatGpt-Clone.git) | [Live](https://ananya-chatgpt.netlify.app/))
 * **💬 AI-Powered Evangadi Forum**: Communication infrastructure with vector semantic search and RAG pipelines. ([Codebase](https://github.com/Ananya-Wubshiet/Evangadi-Forum.git) | [Live](https://ananya-evangadi-forum.netlify.app/))
 
@@ -52,7 +52,7 @@ cd ../frontend && npm install
 ## 👔 Professional Networks
 
 * **GitHub:** [@Ananya-Wubshiet](https://github.com/Ananya-Wubshiet)
-* **LinkedIn:** [Connect on LinkedIn](https:linkedin.com/in/ananya-wubshiet)
+* **LinkedIn:** [Connect on LinkedIn](https://linkedin.com/in/ananya-wubshiet)
 * **Email:** `ananyawub20@gmail.com`
 
 **Developed and maintained by Ananya Wubshiet — 2026**
