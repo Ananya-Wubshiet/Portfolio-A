@@ -2,7 +2,7 @@
 
 A production-grade developer portfolio showcasing full-stack applications engineered with React, Node.js, and MySQL.
 
-### 🌐 [Click Here to View the Live Application](https://ananya-portfolio-a.netlify.app/) 🚀
+### 🌐 [Click Here to View the Live Application](https://ananya-portfolio-u3d5.onrender.com) 🚀
 ---
 
 ## 🚀 Featured Capstone Applications
