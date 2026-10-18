@@ -1,0 +1,466 @@
+/* ==========================================================================
+   1. GLOBAL SYSTEM SETUP & THEME VARIABLES
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* --- THEME VARIANT CONFIGURATIONS --- */
+.portfolio-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #070a13;
+  color: #f3f4f6;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Global Light Mode Layout Overrides */
+.portfolio-container.light-theme {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. FROSTED GLASS NAVIGATION CLUSTER
+   ========================================================================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 8%;
+  background: rgba(7, 10, 19, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+.light-theme .navbar {
+  background: rgba(248, 250, 252, 0.8);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.nav-logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+.nav-logo span { color: #6366f1; }
+
+.nav-logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-logo code {
+  color: #6366f1; /* Indigo color brackets */
+  font-weight: 400;
+}
+
+.nav-logo:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 15px rgba(99, 102, 241, 0.6);
+}
+
+
+.nav-right-cluster {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: #9ca3af;
+  text-decoration: none;
+  margin-left: 2rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.25s ease;
+}
+
+.light-theme .nav-links a { color: #64748b; }
+.nav-links a:hover, .light-theme .nav-links a:hover { color: #6366f1; }
+
+/* THEME TOGGLE INTERACTIVE SWITCH */
+.theme-toggle-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: all 0.25s ease;
+}
+
+.light-theme .theme-toggle-btn {
+  background: rgba(15, 23, 42, 0.05);
+  border-color: rgba(15, 23, 42, 0.1);
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+  border-color: #6366f1;
+}
+
+/* ==========================================================================
+   3. HERO RADIAL HEADER SECTION
+   ========================================================================== */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding:  8rem 8% 5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hero-grid-split {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* Splitting text and image side-by-side */
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-content-left {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Glassmorphism Frame surrounding your developer graphic artwork */
+.hero-graphic-right {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+/* --- ADAPTIVE DEVELOPER PICTURE ENGINE --- */
+.developer-hero-img {
+  width: 100%;
+  max-width: 580px; /* 🚀 MAXIMIZED SIZE: Increased from 480px to match text length block */
+  border-radius: 20px;
+  border: none;
+  
+  /* Gradual radial transparency masking that smooths out hard photo corners */
+  mask-image: radial-gradient(circle, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  
+  /* --- DARK THEME BASE DEFAULT --- */
+  mix-blend-mode: screen; 
+  opacity: 0.85;
+  box-shadow: 0 0 50px rgba(99, 102, 241, 0.15);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ☀️ DYNAMIC LIGHT MODE OVERRIDE (MAKES IT VISIBLE) */
+.light-theme .developer-hero-img {
+  mix-blend-mode: normal; 
+  opacity: 1;
+  filter: none;
+  box-shadow: none;
+
+  /* 🪄 THE ULTIMATE SMOOTH FIX REMOVED SO YOUR NEW ASSET DISPLAYS NATURAL BORDERS ACCURATELY */
+  mask-image: none;
+  -webkit-mask-image: none;
+  
+  /* Modern clean card configuration for the bright workspace photo asset layout */
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+/* --- RESPONSIVE INTERACTION LIFT --- */
+.developer-hero-img:hover, .light-theme .developer-hero-img:hover {
+  transform: translateY(-8px) scale(1.02);    
+  opacity: 1;                                 
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.25); 
+}
+
+
+.badge {
+  background: rgba(99, 102, 241, 0.08);
+  color: #818cf8;
+  padding: 0.5rem 1.2rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  width: fit-content;
+}
+
+.light-theme .badge {
+  background: rgba(99, 102, 241, 0.05);
+  color: #4f46e5;
+}
+
+.hero-section h1 { font-size: 3.75rem; font-weight: 800; letter-spacing: -1.5px; margin-top: 1.5rem; line-height: 1.1; }
+.highlight {
+  background: linear-gradient(to right, #6366f1, #a855f7);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-section p { font-size: 1.25rem; color: #9ca3af; line-height: 1.6; margin: 1.5rem 0 2.5rem; }
+.light-theme .hero-section p { color: #475569; }
+.hero-cta { display: flex; gap: 1rem; justify-content: center; }
+
+.btn { padding: 0.8rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.btn-primary { background: #6366f1; color: #ffffff; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3); }
+.btn-primary:hover { background: #4f46e5; transform: translateY(-2px); }
+.btn-secondary { border: 1px solid rgba(255, 255, 255, 0.08); color: #f3f4f6; background: rgba(255, 255, 255, 0.01); }
+.light-theme .btn-secondary { border-color: rgba(15, 23, 42, 0.1); color: #0f172a; }
+.btn-secondary:hover { transform: translateY(-2px); background: rgba(255, 255, 255, 0.06); }
+.light-theme .btn-secondary:hover { background: rgba(15, 23, 42, 0.04); }
+
+/* ==========================================================================
+   4. SKILLS CHIPS CONFIGURATIONS
+   ========================================================================== */
+.skills-section { padding: 4rem 8%; max-width: 1100px; margin: 0 auto; }
+.skills-container { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 1rem; }
+.skill-badge-item { background: #101524; border: 1px solid rgba(255, 255, 255, 0.03); padding: 0.8rem 1.4rem; border-radius: 10px; font-weight: 500; font-size: 0.95rem; display: flex; align-items: center; gap: 0.6rem; transition: all 0.25s ease; }
+.light-theme .skill-badge-item { background: #ffffff; border-color: rgba(15, 23, 42, 0.05); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+.skill-badge-item:hover { border-color: #6366f1; transform: scale(1.03); }
+.skill-dot { color: #f59e0b; }
+/* ==========================================================================
+   5. TRIPLE RE-ENGINEERED SPECIFIC CAPSTONE THEMED BRANDING SHIELDS
+   ========================================================================== */
+.projects-section { padding: 6rem 8%; max-width: 1400px; margin: 0 auto; }
+.section-title { font-size: 2.5rem; font-weight: 800; text-align: center; letter-spacing: -1px; }
+.section-subtitle { color: #9ca3af; text-align: center; margin: 0.5rem 0 3.5rem; font-size: 1.05rem; }
+.light-theme .section-subtitle { color: #64748b; }
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 2.5rem; }
+
+/* --- CARD HOVER MATRIX ROOT --- */
+.project-card {
+  border-radius: 16px;
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 🟥 NETFLIX CLONE CARD BRANDING (Dark Dark / Red Accent) */
+.project-card.netflix-theme-card {
+  background: linear-gradient(135deg, #140d10 0%, #090608 100%);
+  border: 1px solid rgba(229, 9, 20, 0.15);
+}
+.project-card.netflix-theme-card:hover {
+  border-color: #e50914;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(229, 9, 20, 0.2);
+}
+
+/* 🟩 CHATGPT CLONE CARD BRANDING (Dark Dark / Emerald Green Accent) */
+.project-card.chatgpt-theme-card {
+  background: linear-gradient(135deg, #0b1512 0%, #050a08 100%);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+}
+.project-card.chatgpt-theme-card:hover {
+  border-color: #10b981;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(16, 185, 129, 0.2);
+}
+
+/* 🟪 EVANGADI FORUM CARD BRANDING (Dark Dark / Deep Purple Accent) */
+.project-card.evangadi-theme-card {
+  background: linear-gradient(135deg, #120e25 0%, #080612 100%);
+  border: 1px solid rgba(168, 85, 247, 0.15);
+}
+.project-card.evangadi-theme-card:hover {
+  border-color: #a855f7;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(168, 85, 247, 0.25);
+}
+
+/* --- LIGHT THEME CARD OVERRIDES (Soft Light Backgrounds with branded accents) --- */
+.light-theme .project-card.netflix-theme-card { background: #fff5f5; border-color: rgba(229, 9, 20, 0.1); }
+.light-theme .project-card.chatgpt-theme-card { background: #f0fdf4; border-color: rgba(16, 185, 129, 0.1); }
+.light-theme .project-card.evangadi-theme-card { background: #faf5ff; border-color: rgba(168, 85, 247, 0.1); }
+
+.light-theme .project-card.netflix-theme-card h3 { color: #b91c1c; }
+.light-theme .project-card.chatgpt-theme-card h3 { color: #047857; }
+.light-theme .project-card.evangadi-theme-card h3 { color: #6b21a8; }
+
+/* Internal Card Text Settings */
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.folder-icon { font-size: 1.5rem; transition: transform 0.3s ease; }
+.project-card:hover .folder-icon { transform: rotate(-10px) scale(1.1); }
+.project-badge { font-size: 0.75rem; background: rgba(255, 255, 255, 0.05); color: #d1d5db; padding: 0.3rem 0.8rem; border-radius: 9999px; font-weight: 600; border: 1px solid rgba(255, 255, 255, 0.1); }
+.light-theme .project-badge { background: rgba(0, 0, 0, 0.03); color: #475569; border-color: rgba(0, 0, 0, 0.05); }
+
+.project-card h3 { font-size: 1.45rem; font-weight: 700; margin-bottom: 0.85rem; color: #ffffff; letter-spacing: -0.3px; }
+.project-desc { color: #9ca3af; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.75rem; flex-grow: 1; }
+.light-theme .project-desc { color: #475569; }
+
+.tech-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+.tech-tag { background: rgba(31, 41, 55, 0.5); color: #cbd5e1; font-size: 0.75rem; padding: 0.3rem 0.7rem; border-radius: 6px; font-weight: 500; border: 1px solid rgba(255, 255, 255, 0.03); }
+.light-theme .tech-tag { background: rgba(255, 255, 255, 0.8); color: #334155; border-color: rgba(0, 0, 0, 0.04); }
+
+.card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.action-link { padding: 0.7rem; border-radius: 8px; text-align: center; text-decoration: none; font-size: 0.875rem; font-weight: 600; transition: all 0.25s ease; }
+.github-btn { background: #1f2937; color: #f3f4f6; border: 1px solid rgba(255, 255, 255, 0.06); }
+.light-theme .github-btn { background: #e2e8f0; color: #334155; border: none; }
+.github-btn:hover { background: #2d3748; }
+.light-theme .github-btn:hover { background: #cbd5e1; }
+.live-btn { background: #6366f1; color: #ffffff; }
+.live-btn:hover { background: #4f46e5; }
+
+/* ==========================================================================
+   6. CONTACT NETWORK ACCESS DOCK PANEL
+   ========================================================================== */
+.contact-section { 
+  text-align: center; 
+  padding: 7rem 8%; 
+  background: #0a0e1a; 
+  border-top: 1px solid rgba(255, 255, 255, 0.02); 
+  transition: background 0.4s ease; 
+}
+
+.light-theme .contact-section { 
+  background: #f1f5f9; 
+  border-top: 1px solid rgba(0, 0, 0, 0.04); 
+}
+
+.contact-section h2 { 
+  font-size: 2.25rem; 
+  font-weight: 800; 
+  letter-spacing: -0.5px; 
+}
+
+.contact-section p { 
+  color: #9ca3af; 
+  margin: 0.5rem 0 3rem; 
+  font-size: 1.05rem; 
+}
+
+.light-theme .contact-section p { 
+  color: #475569; 
+}
+
+.contact-methods { 
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 1.5rem; 
+  max-width: 950px; 
+  margin: 0 auto; 
+}
+
+.contact-card { 
+  background: #101524; 
+  border: 1px solid rgba(255, 255, 255, 0.03); 
+  padding: 1.6rem 2.2rem; 
+  border-radius: 12px; 
+  text-decoration: none; 
+  color: white; 
+  min-width: 260px; 
+  flex: 1; 
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
+  text-align: left; 
+}
+
+.light-theme .contact-card { 
+  background: #ffffff; 
+  border-color: rgba(0, 0, 0, 0.04); 
+  color: #0f172a; 
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); 
+}
+
+.contact-card:hover { 
+  border-color: #6366f1; 
+  transform: translateY(-5px); 
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); 
+}
+
+.contact-icon { 
+  font-weight: 700; 
+  color: #818cf8; 
+  display: block; 
+  font-size: 1.15rem; 
+  margin-bottom: 0.35rem; 
+}
+
+.light-theme .contact-card p { 
+  color: #64748b; 
+}
+
+/* ==========================================================================
+   7. FOOTER BAR SIGNATURE
+   ========================================================================== */
+.portfolio-footer { 
+  text-align: center; 
+  padding: 2.5rem; 
+  font-size: 0.875rem; 
+  color: #52525b; 
+  border-top: 1px solid rgba(255, 255, 255, 0.03); 
+  margin-top: auto; 
+}
+
+.light-theme .portfolio-footer { 
+  color: #94a3b8; 
+  border-top-color: rgba(0, 0, 0, 0.04); 
+}
+
+/* ==========================================================================
+   8. MEDIA QUERY ADJUSTMENTS (TABLETS & PHONES)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .projects-grid { 
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); 
+    gap: 1.75rem; 
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar { 
+    padding: 1.25rem 5%; 
+  }
+  .nav-links { 
+    display: none; 
+  }
+  .hero-section h1 { 
+    font-size: 2.75rem; 
+  }
+  .projects-grid { 
+    grid-template-columns: 1fr; 
+  }
+  .card-actions { 
+    grid-template-columns: 1fr; 
+  }
+  .contact-methods { 
+    flex-direction: column; 
+    align-items: center; 
+  }
+  .contact-card { 
+    width: 100%; 
+  }
+ 
+  .hero-grid-split {
+    grid-template-columns: 1fr; 
+    gap: 2.5rem;
+  }
+  .hero-content-left {
+    text-align: center;
+    align-items: center;
+  }
+  .developer-hero-img {
+    max-width: 100%;
+  }
+}
